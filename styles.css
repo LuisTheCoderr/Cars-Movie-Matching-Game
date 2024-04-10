@@ -1,0 +1,42 @@
+body {
+    margin: 1em;
+    background-image: url("https://t3.ftcdn.net/jpg/05/00/59/20/360_F_500592051_wKXH8eZ1Te5OrMqBciEZdk8OrXgG0GW4.jpg");
+    font-family: "Workbench";
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+
+h1 {
+    font-size: 45px;
+    color: White;
+    font-family: "Workbench";
+    font-weight: 800;
+}
+
+game {
+    display: inline;
+}
+
+button {
+
+    background-color: white;
+    color: purple;
+    font-family: "workbench";
+}
+
+.card {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.37);
+    background-size: 80px 120px;
+    width: 80px;
+    height: 120px;
+    margin: 5px;
+    border: 2px solid white;
+}
+
+p:hover,
+h1:hover,
+a:hover,
+h4:hover {
+    background-color: Purple;
+}
