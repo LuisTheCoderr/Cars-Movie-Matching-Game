@@ -1,0 +1,121 @@
+<!DOCTYPE html> <html><head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Workbench">
+        <title>Cars Movie Matching Game!</title>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&amp;display=swap" rel="stylesheet">
+    <style>body {
+    margin: 1em;
+    background-image: url("https://t3.ftcdn.net/jpg/05/00/59/20/360_F_500592051_wKXH8eZ1Te5OrMqBciEZdk8OrXgG0GW4.jpg");
+    font-family: "Workbench";
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+
+h1 {
+    font-size: 45px;
+    color: White;
+    font-family: "Workbench";
+    font-weight: 800;
+}
+
+game {
+    display: inline;
+}
+
+button {
+
+    background-color: white;
+    color: purple;
+    font-family: "workbench";
+}
+
+.card {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.37);
+    background-size: 80px 120px;
+    width: 80px;
+    height: 120px;
+    margin: 5px;
+    border: 2px solid white;
+}
+
+p:hover,
+h1:hover,
+a:hover,
+h4:hover {
+    background-color: Purple;
+}</style></head>
+    <body>
+        <h1>Cars Movie Matching Game</h1>
+        <button class="show">Show Deck</button>
+        <button class="double">Double Deck</button>
+        <button class="shuffle">Shuffle Cards</button>
+        <button class="flip">Flip Cards</button>
+        <br>
+        <br>
+        <!-- The .game div is where the cards will appear -->
+        <div class="game"></div>
+        <script src="script.js"></script>
+    
+<script>
+/*__POPCODESTART__*/
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var game = document.querySelector(".game"); // 4 buttons
+
+var buttonShow = document.querySelector(".show");
+var buttonDouble = document.querySelector(".double");
+var buttonShuffle = document.querySelector(".shuffle");
+var buttonFlip = document.querySelector(".flip"); // Array containing image URLs
+
+var urlPrefix = "https://cdn.glitch.global/4f674391-ca19-40ba-99ca-d7f3769cc050/Luis%20amaya%20";
+var cards = ["blue%20car.jpg?v=1712178147012", "green%20car.jpg?v=1712178240909", "light%20blue%20car.jpg?v=1712178575311", "yellow%20car.jpg?v=1712178637921", "red%20car.jpg?v=1712178717431", "brown%20car.jpg?v=1712178792927", "truck%20car.jpg?v=1712178849879", "cyan%20car.jpg?v=1712178984539"]; // Button to Show Deck
+
+buttonShow.onclick = function () {
+  console.log("Deck has 8 cards!");
+  buttonShow.style.color = "grey";
+
+  var _iterator = _createForOfIteratorHelper(cards),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var card = _step.value;
+      game.insertAdjacentHTML("beforeend", "<div style='background-image: url(" + urlPrefix + card + ")' class='card'>");
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+}; // Button to Double Deck
+
+
+buttonDouble.onclick = function () {
+  console.log(" Deck has" + cards.length + "cards.");
+
+  var _iterator2 = _createForOfIteratorHelper(cards),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var card = _step2.value;
+
+      if (cards.length !== 16) {
+        cards.push(card);
+        game.insertAdjacentHTML("beforeend", "<div style = 'background-image: url (" + urlPrefix + card + ")'class = card'>");
+      }
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+
+  buttonDouble.style.color = "grey";
+  console.log("Now the deck has" + cards.length + "cards.");
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvcGNvZGVQcmV2aWV3LmpzIl0sIm5hbWVzIjpbImdhbWUiLCJkb2N1bWVudCIsInF1ZXJ5U2VsZWN0b3IiLCJidXR0b25TaG93IiwiYnV0dG9uRG91YmxlIiwiYnV0dG9uU2h1ZmZsZSIsImJ1dHRvbkZsaXAiLCJ1cmxQcmVmaXgiLCJjYXJkcyIsIm9uY2xpY2siLCJjb25zb2xlIiwibG9nIiwic3R5bGUiLCJjb2xvciIsImNhcmQiLCJpbnNlcnRBZGphY2VudEhUTUwiLCJsZW5ndGgiLCJwdXNoIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQyxJQUFJQSxJQUFJLEdBQUdDLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixPQUF2QixDQUFYLEMsQ0FDQTs7QUFDQSxJQUFJQyxVQUFVLEdBQUdGLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixPQUF2QixDQUFqQjtBQUNBLElBQUlFLFlBQVksR0FBR0gsUUFBUSxDQUFDQyxhQUFULENBQXVCLFNBQXZCLENBQW5CO0FBQ0EsSUFBSUcsYUFBYSxHQUFHSixRQUFRLENBQUNDLGFBQVQsQ0FBdUIsVUFBdkIsQ0FBcEI7QUFDQSxJQUFJSSxVQUFVLEdBQUdMLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixPQUF2QixDQUFqQixDLENBQ0E7O0FBQ0EsSUFBSUssU0FBUyxHQUFHLGdGQUFoQjtBQUNBLElBQUlDLEtBQUssR0FBRyxDQUNSLGdDQURRLEVBRVIsaUNBRlEsRUFHUix3Q0FIUSxFQUlSLGtDQUpRLEVBS1IsK0JBTFEsRUFNUixpQ0FOUSxFQU9SLGlDQVBRLEVBUVIsZ0NBUlEsQ0FBWixDLENBV0E7O0FBQ0FMLFVBQVUsQ0FBQ00sT0FBWCxHQUFxQixZQUFXO0FBRXhCQyxFQUFBQSxPQUFPLENBQUNDLEdBQVIsQ0FBWSxtQkFBWjtBQUNBUixFQUFBQSxVQUFVLENBQUNTLEtBQVgsQ0FBaUJDLEtBQWpCLEdBQXlCLE1BQXpCOztBQUh3Qiw2Q0FLUEwsS0FMTztBQUFBOztBQUFBO0FBS3hCLHdEQUF3QjtBQUFBLFVBQWZNLElBQWU7QUFDcEJkLE1BQUFBLElBQUksQ0FBQ2Usa0JBQUwsQ0FBd0IsV0FBeEIsRUFDSSx1Q0FBdUNSLFNBQXZDLEdBQW1ETyxJQUFuRCxHQUEwRCxrQkFEOUQ7QUFFSDtBQVJ1QjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBUy9CLENBVEQsQyxDQVdROzs7QUFFRlYsWUFBWSxDQUFDSyxPQUFiLEdBQXVCLFlBQVk7QUFDL0JDLEVBQUFBLE9BQU8sQ0FBQ0MsR0FBUixDQUFZLGNBQWNILEtBQUssQ0FBQ1EsTUFBcEIsR0FBNkIsUUFBekM7O0FBRCtCLDhDQUVkUixLQUZjO0FBQUE7O0FBQUE7QUFFL0IsMkRBQXdCO0FBQUEsVUFBZk0sSUFBZTs7QUFDcEIsVUFBSU4sS0FBSyxDQUFDUSxNQUFOLEtBQWdCLEVBQXBCLEVBQXdCO0FBQ3BCUixRQUFBQSxLQUFLLENBQUNTLElBQU4sQ0FBV0gsSUFBWDtBQUNBZCxRQUFBQSxJQUFJLENBQUNlLGtCQUFMLENBQXlCLFdBQXpCLEVBQXVDLDBDQUEwQ1IsU0FBMUMsR0FBc0RPLElBQXRELEdBQTRELGtCQUFuRztBQUVIO0FBQ0o7QUFSOEI7QUFBQTtBQUFBO0FBQUE7QUFBQTs7QUFTL0JWLEVBQUFBLFlBQVksQ0FBQ1EsS0FBYixDQUFtQkMsS0FBbkIsR0FBMkIsTUFBM0I7QUFDQUgsRUFBQUEsT0FBTyxDQUFDQyxHQUFSLENBQVkscUJBQXFCSCxLQUFLLENBQUNRLE1BQTNCLEdBQW9DLFFBQWhEO0FBRUgsQ0FaRCIsInNvdXJjZXNDb250ZW50IjpbIiBsZXQgZ2FtZSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIuZ2FtZVwiKTtcbiAvLyA0IGJ1dHRvbnNcbiBsZXQgYnV0dG9uU2hvdyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIuc2hvd1wiKTtcbiBsZXQgYnV0dG9uRG91YmxlID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5kb3VibGVcIik7XG4gbGV0IGJ1dHRvblNodWZmbGUgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnNodWZmbGVcIik7XG4gbGV0IGJ1dHRvbkZsaXAgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLmZsaXBcIik7XG4gLy8gQXJyYXkgY29udGFpbmluZyBpbWFnZSBVUkxzXG4gbGV0IHVybFByZWZpeCA9IFwiaHR0cHM6Ly9jZG4uZ2xpdGNoLmdsb2JhbC80ZjY3NDM5MS1jYTE5LTQwYmEtOTljYS1kN2YzNzY5Y2MwNTAvTHVpcyUyMGFtYXlhJTIwXCI7XG4gbGV0IGNhcmRzID0gW1xuICAgICBcImJsdWUlMjBjYXIuanBnP3Y9MTcxMjE3ODE0NzAxMlwiLFxuICAgICBcImdyZWVuJTIwY2FyLmpwZz92PTE3MTIxNzgyNDA5MDlcIixcbiAgICAgXCJsaWdodCUyMGJsdWUlMjBjYXIuanBnP3Y9MTcxMjE3ODU3NTMxMVwiLFxuICAgICBcInllbGxvdyUyMGNhci5qcGc/dj0xNzEyMTc4NjM3OTIxXCIsXG4gICAgIFwicmVkJTIwY2FyLmpwZz92PTE3MTIxNzg3MTc0MzFcIixcbiAgICAgXCJicm93biUyMGNhci5qcGc/dj0xNzEyMTc4NzkyOTI3XCIsXG4gICAgIFwidHJ1Y2slMjBjYXIuanBnP3Y9MTcxMjE3ODg0OTg3OVwiLFxuICAgICBcImN5YW4lMjBjYXIuanBnP3Y9MTcxMjE3ODk4NDUzOVwiXG4gXTtcblxuIC8vIEJ1dHRvbiB0byBTaG93IERlY2tcbiBidXR0b25TaG93Lm9uY2xpY2sgPSBmdW5jdGlvbigpIHtcblxuICAgICAgICAgY29uc29sZS5sb2coXCJEZWNrIGhhcyA4IGNhcmRzIVwiKTtcbiAgICAgICAgIGJ1dHRvblNob3cuc3R5bGUuY29sb3IgPSBcImdyZXlcIjtcblxuICAgICAgICAgZm9yIChsZXQgY2FyZCBvZiBjYXJkcykge1xuICAgICAgICAgICAgIGdhbWUuaW5zZXJ0QWRqYWNlbnRIVE1MKFwiYmVmb3JlZW5kXCIsXG4gICAgICAgICAgICAgICAgIFwiPGRpdiBzdHlsZT0nYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiICsgdXJsUHJlZml4ICsgY2FyZCArIFwiKScgY2xhc3M9J2NhcmQnPlwiKTtcbiAgICAgICAgIH1cbiB9O1xuXG4gICAgICAgICAvLyBCdXR0b24gdG8gRG91YmxlIERlY2tcblxuICAgICAgIGJ1dHRvbkRvdWJsZS5vbmNsaWNrID0gZnVuY3Rpb24gKCkge1xuICAgICAgICAgICBjb25zb2xlLmxvZyhcIiBEZWNrIGhhc1wiICsgY2FyZHMubGVuZ3RoICsgXCJjYXJkcy5cIik7XG4gICAgICAgICAgIGZvciAobGV0IGNhcmQgb2YgY2FyZHMpIHtcbiAgICAgICAgICAgICAgIGlmIChjYXJkcy5sZW5ndGggIT09MTYpIHtcbiAgICAgICAgICAgICAgICAgICBjYXJkcy5wdXNoKGNhcmQpO1xuICAgICAgICAgICAgICAgICAgIGdhbWUuaW5zZXJ0QWRqYWNlbnRIVE1MIChcImJlZm9yZWVuZFwiICwgXCI8ZGl2IHN0eWxlID0gJ2JhY2tncm91bmQtaW1hZ2U6IHVybCAoXCIgKyB1cmxQcmVmaXggKyBjYXJkICtcIiknY2xhc3MgPSBjYXJkJz5cIlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICApO1xuICAgICAgICAgICAgICAgfVxuICAgICAgICAgICB9XG4gICAgICAgICAgIGJ1dHRvbkRvdWJsZS5zdHlsZS5jb2xvciA9IFwiZ3JleVwiO1xuICAgICAgICAgICBjb25zb2xlLmxvZyhcIk5vdyB0aGUgZGVjayBoYXNcIiArIGNhcmRzLmxlbmd0aCArIFwiY2FyZHMuXCIpO1xuICAgICAgICAgICBcbiAgICAgICB9OyJdfQ==</script></body></html>
